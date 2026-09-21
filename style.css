@@ -1,0 +1,388 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+
+    font-family: 'Montserrat', sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #4a164f 0%,
+            #210d2c 40%,
+            #09040d 100%
+        );
+
+    color: white;
+}
+
+/* -------------------------
+   ФОН
+------------------------- */
+
+.background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+    opacity: 0.25;
+
+    animation: float 8s ease-in-out infinite;
+}
+
+.glow-1 {
+    background: #ff3cac;
+    top: -200px;
+    left: -150px;
+}
+
+.glow-2 {
+    background: #784ba0;
+    bottom: -250px;
+    right: -150px;
+
+    animation-delay: -3s;
+}
+
+.glow-3 {
+    background: #ff8bd4;
+    top: 40%;
+    left: 40%;
+
+    width: 250px;
+    height: 250px;
+
+    opacity: 0.12;
+
+    animation-delay: -5s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(40px, -30px) scale(1.15);
+    }
+}
+
+/* -------------------------
+   PARTICLES
+------------------------- */
+
+#particles {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+}
+
+/* -------------------------
+   ГОЛОВНИЙ БЛОК
+------------------------- */
+
+.hero {
+    position: relative;
+    z-index: 2;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px;
+}
+
+/* -------------------------
+   ТЕКСТ
+------------------------- */
+
+.small-text {
+    font-size: 14px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+
+    color: rgba(255, 255, 255, 0.55);
+
+    margin-bottom: 15px;
+
+    animation: appear 1s ease forwards;
+}
+
+h1 {
+    font-size: clamp(70px, 15vw, 150px);
+
+    line-height: 0.9;
+
+    font-weight: 800;
+
+    letter-spacing: -5px;
+
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #ffb6e6,
+        #ff3cac
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation:
+        titleAppear 1.2s cubic-bezier(.17,.67,.3,1.3) forwards,
+        pulse 3s ease-in-out infinite;
+
+    text-shadow:
+        0 0 50px rgba(255, 60, 172, 0.25);
+}
+
+h1 span {
+    font-size: 0.35em;
+    vertical-align: top;
+}
+
+/* -------------------------
+   РОЗДІЛЮВАЧ
+------------------------- */
+
+.divider {
+    width: 100px;
+    height: 2px;
+
+    margin: 30px 0;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #ff7ccc,
+        transparent
+    );
+
+    box-shadow:
+        0 0 15px #ff3cac;
+
+    animation: expand 1.5s ease forwards;
+}
+
+/* -------------------------
+   ОСНОВНИЙ ТЕКСТ
+------------------------- */
+
+h2 {
+    max-width: 800px;
+
+    font-size: clamp(28px, 5vw, 55px);
+
+    line-height: 1.15;
+
+    font-weight: 600;
+
+    animation: appear 1.5s ease 0.4s both;
+}
+
+h2 span {
+    color: #ff72c6;
+
+    text-shadow:
+        0 0 20px rgba(255, 72, 184, 0.7),
+        0 0 50px rgba(255, 72, 184, 0.3);
+}
+
+.description {
+    margin-top: 25px;
+
+    font-size: clamp(15px, 2vw, 19px);
+
+    line-height: 1.8;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    animation: appear 1.5s ease 0.7s both;
+}
+
+/* -------------------------
+   КНОПКА
+------------------------- */
+
+button {
+    margin-top: 35px;
+
+    padding: 15px 28px;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: white;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+
+    animation: appear 1.5s ease 1s both;
+}
+
+button:hover {
+    transform: scale(1.08);
+
+    background: rgba(255, 70, 180, 0.2);
+
+    box-shadow:
+        0 0 30px rgba(255, 60, 172, 0.35);
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+/* -------------------------
+   СЕКРЕТНЕ ПОВІДОМЛЕННЯ
+------------------------- */
+
+.secret-message {
+    margin-top: 25px;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    color: #ffb6e6;
+
+    opacity: 0;
+    transform: translateY(15px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.secret-message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.secret-message span {
+    display: inline-block;
+
+    margin: 0 10px;
+
+    animation: heartbeat 1.2s infinite;
+}
+
+/* -------------------------
+   АНІМАЦІЇ
+------------------------- */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes titleAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.7) translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes expand {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+
+    to {
+        width: 100px;
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(1.2);
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
+}
+
+/* -------------------------
+   МОБІЛЬНІ
+------------------------- */
+
+@media (max-width: 600px) {
+
+    .hero {
+        padding: 20px;
+    }
+
+    h1 {
+        letter-spacing: -3px;
+    }
+
+    .divider {
+        margin: 22px 0;
+    }
+
+    button {
+        margin-top: 28px;
+    }
+}
